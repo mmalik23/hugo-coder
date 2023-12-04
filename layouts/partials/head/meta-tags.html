@@ -2,6 +2,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 
+{{ if and (eq .Site.Params.colorScheme "auto") .Site.Params.hidecolorschemetoggle }}
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#212121" media="(prefers-color-scheme: dark)">
+{{ end }}
+
+
 {{ if .Site.Params.csp }}
 {{ partial "csp.html" . }}
 {{ end }}
